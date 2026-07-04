@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes.teleop;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
+
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -86,6 +88,17 @@ public class newMecanumDrive {
 
 
     public void driveFieldRelative(double forward, double strafe, double rotate){
+        double theta = Math.atan2(forward, strafe);
+        double r = Math.hypot(strafe, forward);
+
+        theta = AngleUnit.normalizeRadians(theta -
+                imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS));
+
+        double newForward = r * Math.sin(theta);
+        double newStrafe = r * Math.cos(theta);
+
+        this.drive(newForward, newStrafe, rotate);
+
 
 
     }
@@ -112,6 +125,10 @@ public class newMecanumDrive {
     public double getRPMBackRight() {
         double ticksPerSecond = backRightMotor.getVelocity();
         return (ticksPerSecond / TICKS_PER_REV) * 60;
+    }
+
+    public void resetYaw(){
+        imu.resetYaw();
     }
 }
 
