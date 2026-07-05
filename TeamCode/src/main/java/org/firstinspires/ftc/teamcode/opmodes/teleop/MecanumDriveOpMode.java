@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.internal.ui.GamepadUser;
 
 
-@TeleOp
+@TeleOp (name = "Robot-Oriented Drive")
 
 
 public class MecanumDriveOpMode extends OpMode {

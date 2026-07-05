@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.opmodes.teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp
+@TeleOp (name = "Field-Orientated Drive")
 public class MecanumFieldOrientatedOpMode extends OpMode {
 
     newMecanumDrive drive = new newMecanumDrive();
