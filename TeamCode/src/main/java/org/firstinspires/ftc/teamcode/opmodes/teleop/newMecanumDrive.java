@@ -66,7 +66,7 @@ public class newMecanumDrive {
 
 
         double maxPower = 1.0;
-        double maxSpeed = 0.5;
+        double maxSpeed = 1.0;
 
 
         maxPower = Math.max(maxPower, Math.abs(frontLeftPower));
